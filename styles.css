@@ -1,0 +1,327 @@
+/* Import Fira Code font */
+@font-face {
+    font-family: 'Fira Code';
+    src: url('https://fonts.gstatic.com/s/firacode/v22/uU9eCBsR6Z2vfE9aq3bL0fxyUs4tcw4W_GNsFVfxN87gsj0.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: 'Fira Code', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at 50% 50%, #000000, #333333, #4d4d4d, #646464, #707070);
+    background-size: 200% 200%;
+    animation: gradientAnimation 15s infinite linear;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 50% 50%;
+    }
+    25% {
+        background-position: 0% 100%;
+    }
+    50% {
+        background-position: 50% 50%;
+    }
+    75% {
+        background-position: 100% 0%;
+    }
+    100% {
+        background-position: 50% 50%;
+    }
+}
+
+.content {
+    text-align: center;
+    color: white;
+    z-index: 1;
+    position: relative;
+    transition: opacity 1s ease-out;
+}
+
+h1.sparkling-text {
+    font-size: 3em;
+    margin: 0;
+    font-family: 'Fira Code', 'Old English Text MT', serif;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    color: transparent;
+    background: linear-gradient(45deg, #ffffff, #333333, #4d4d4d);
+    background-size: 400%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: sparkleAnimation 4s linear infinite;
+}
+
+@keyframes sparkleAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Particle Styles for Text */
+#particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: particleAnimation 4s infinite ease-in-out;
+}
+
+@keyframes particleAnimation {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-100px) scale(0.5);
+        opacity: 0;
+    }
+}
+
+p {
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+/* Button Styles */
+.download-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-family: 'Fira Code', Arial, sans-serif;
+    color: white;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    text-decoration: none;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background 0.3s ease-in-out;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 255, 255, 0.3);
+    transform-style: preserve-3d;
+}
+
+.download-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4), 0 0 40px rgb(255, 255, 255);
+}
+
+/* Arrow Styles */
+.arrow {
+    position: absolute;
+    bottom: 20px; /* Position it 20px above the bottom of the screen */
+    left: 50%; /* Center the arrow horizontally */
+    transform: translateX(-50%) rotate(90deg); /* Rotate the arrow to face downwards and center it */
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+    z-index: 2;
+    transition: color 0.3s ease;
+}
+
+
+/* Overlay Styles */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    color: white;
+    display: none; /* Initially hidden */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 2;
+    transition: opacity 1s ease;
+}
+
+.overlay-text {
+    font-size: 2em;
+    font-family: 'Fira Code', Arial, sans-serif;
+    color: #000000; /* Glowing text color */
+    text-shadow: 0 0 10px #ff1493, 0 0 20px #ff1493, 0 0 30px #ff1493;
+}
+
+/* Typewriter effect with reset */
+.typewriter {
+    overflow: hidden;
+    border-right: 0.15em solid #ffffff;
+    white-space: nowrap;
+    animation: typing 1.5s steps(2, end) forwards, blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    0% { width: 0; }
+    50% { width: 11ch; } /* Typing in */
+    75% { width: 11ch; } /* Pause at full text */
+    100% { width: 0; } /* Typing out */
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #000000; }
+}
+
+/* App Overlay Styles */
+#app-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, #ff00ff, #b300b3, #7a007a, #590059, #320032);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    z-index: 3;
+    animation: gradientAnimation 15s infinite linear;
+}
+
+.card-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+/* Card Styles */
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    width: 400px;
+    height: 250px;
+    perspective: 1000px;
+    position: relative;
+}
+
+/* General styles for card sides */
+.card-front, .card-back {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: transform 0.6s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+    box-sizing: border-box;
+    color: white;
+}
+
+.card-front p, .card-back p {
+    font-size: 14px;
+    margin: 5px 0;
+    padding: 0;
+}
+
+.card-front {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.card-back {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: rotateY(180deg);
+}
+
+.card:hover .card-front {
+    transform: rotateY(180deg);
+}
+
+.card:hover .card-back {
+    transform: rotateY(360deg);
+}
+
+/* Slider Container */
+.slider-container {
+    width: 50%; /* Adjusted width for smaller slider */
+    height: 25%; /* Further reduced height for the slider */
+    overflow: hidden;
+    margin-top: 10px;
+    flex-grow: 1;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Download button aligned to the right side in the middle */
+.download-link {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 5px 10px;
+    background-color: #ff69b4;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    z-index: 2; /* Ensure the button is above the slider */
+}
+
+.download-link:hover {
+    background-color: #ff1493;
+}
+
+/* Image Slider Styling */
+.card-back .image-slider {
+    width: 200px; /* Increased width of the image slider */
+    height: auto; /* Maintain aspect ratio */
+    margin-left: -30px; /* Moved the image slider to the left */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.image-slider img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
